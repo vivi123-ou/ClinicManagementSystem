@@ -1,5 +1,6 @@
-Clinic Management System
-The Clinic Management System is a desktop application designed to streamline clinic operations. It provides an intuitive interface for managing patients, doctors, appointments, medical records, and more, ensuring efficient healthcare administration.
+## Clinic Management System
+
+The Clinic Management System is a WEB API project designed to streamline clinic operations. It provides an intuitive interface for managing patients, doctors, appointments, medical records, and more, ensuring efficient healthcare administration.
 
 ## Database Schema (ERD)
 ![ERD](https://github.com/user-attachments/assets/b7695c51-b1f0-4fc1-a23b-67c96915e4fc)
