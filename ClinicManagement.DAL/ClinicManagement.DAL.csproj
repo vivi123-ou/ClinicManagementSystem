@@ -1,0 +1,62 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <Compile Remove="Entities - Copy\**" />
+    <EmbeddedResource Remove="Entities - Copy\**" />
+    <None Remove="Entities - Copy\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="obj\Debug\net8.0\.NETCoreApp,Version=v8.0.AssemblyAttributes.cs" />
+    <Compile Include="obj\Debug\net8.0\ClinicManagement.DAL.AssemblyInfo.cs" />
+    <Compile Include="obj\Debug\net8.0\ClinicManagement.DAL.GlobalUsings.g.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="bin\Debug\net8.0\ClinicManagement.DAL.deps.json" />
+    <Content Include="bin\Debug\net8.0\ClinicManagement.DAL.runtimeconfig.json" />
+    <Content Include="obj\ClinicManagement.DAL.csproj.nuget.dgspec.json" />
+    <Content Include="obj\Debug\net8.0\ClinicManagement.DAL.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\project.assets.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ClinicManagement.Common\ClinicManagement.Common.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.0">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="bin\Debug\net8.0\ClinicManagement.Common.dll" />
+    <None Include="bin\Debug\net8.0\ClinicManagement.Common.pdb" />
+    <None Include="bin\Debug\net8.0\ClinicManagement.DAL.dll" />
+    <None Include="bin\Debug\net8.0\ClinicManagement.DAL.pdb" />
+    <None Include="obj\ClinicManagement.DAL.csproj.nuget.g.props" />
+    <None Include="obj\ClinicManagement.DAL.csproj.nuget.g.targets" />
+    <None Include="obj\Debug\net8.0\ClinicMa.6BD4B174.Up2Date" />
+    <None Include="obj\Debug\net8.0\ClinicManagement.DAL.AssemblyInfoInputs.cache" />
+    <None Include="obj\Debug\net8.0\ClinicManagement.DAL.assets.cache" />
+    <None Include="obj\Debug\net8.0\ClinicManagement.DAL.csproj.AssemblyReference.cache" />
+    <None Include="obj\Debug\net8.0\ClinicManagement.DAL.csproj.CoreCompileInputs.cache" />
+    <None Include="obj\Debug\net8.0\ClinicManagement.DAL.dll" />
+    <None Include="obj\Debug\net8.0\ClinicManagement.DAL.GeneratedMSBuildEditorConfig.editorconfig" />
+    <None Include="obj\Debug\net8.0\ClinicManagement.DAL.genruntimeconfig.cache" />
+    <None Include="obj\Debug\net8.0\ClinicManagement.DAL.pdb" />
+    <None Include="obj\Debug\net8.0\refint\ClinicManagement.DAL.dll" />
+    <None Include="obj\Debug\net8.0\ref\ClinicManagement.DAL.dll" />
+    <None Include="obj\project.nuget.cache" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+</Project>
