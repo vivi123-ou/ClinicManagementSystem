@@ -3,21 +3,20 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClinicManagement.API", "ClinicManagement.API\ClinicManagement.API.csproj", "{FC4AAD44-2281-43B7-9D99-0FDAD396C20E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClinicManagement.API", "ClinicManagement.API\ClinicManagement.API.csproj", "{FC4AAD44-2281-43B7-9D99-0FDAD396C20E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClinicManagement.BLL", "ClinicManagement.BLL\ClinicManagement.BLL.csproj", "{AC5787E6-1476-4D96-988F-86CA5D735F80}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClinicManagement.BLL", "ClinicManagement.BLL\ClinicManagement.BLL.csproj", "{AC5787E6-1476-4D96-988F-86CA5D735F80}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClinicManagement.DAL", "ClinicManagement.DAL\ClinicManagement.DAL.csproj", "{083A81FA-82EB-4B93-AEAC-323B98103145}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClinicManagement.DAL", "ClinicManagement.DAL\ClinicManagement.DAL.csproj", "{083A81FA-82EB-4B93-AEAC-323B98103145}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClinicManagement.Common", "ClinicManagement.Common\ClinicManagement.Common.csproj", "{E61F8080-3712-415C-9779-FAA71AA99AFA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClinicManagement.Common", "ClinicManagement.Common\ClinicManagement.Common.csproj", "{E61F8080-3712-415C-9779-FAA71AA99AFA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClinicManagement.WinForms", "ClinicManagement.WinForms\ClinicManagement.WinForms.csproj", "{6355FF72-9123-4504-853A-6CD5A5916C65}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{FC4AAD44-2281-43B7-9D99-0FDAD396C20E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -36,5 +35,15 @@ Global
 		{E61F8080-3712-415C-9779-FAA71AA99AFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E61F8080-3712-415C-9779-FAA71AA99AFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E61F8080-3712-415C-9779-FAA71AA99AFA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6355FF72-9123-4504-853A-6CD5A5916C65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6355FF72-9123-4504-853A-6CD5A5916C65}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6355FF72-9123-4504-853A-6CD5A5916C65}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6355FF72-9123-4504-853A-6CD5A5916C65}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A4D675E7-6A7A-4AFC-A18D-948FC8CED4DA}
 	EndGlobalSection
 EndGlobal

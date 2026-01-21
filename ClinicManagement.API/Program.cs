@@ -3,6 +3,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Text;
+using ClinicManagement.DAL.Data;
+using ClinicManagement.DAL.Repositories;
+using ClinicManagement.BLL.Services;
+using ClinicManagement.BLL.Mappings;
+using ClinicManagement.BLL.Service;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,19 +15,25 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 
-// Configure Database - PostgreSQL (comment out vì chưa có DbContext)
-// var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-// builder.Services.AddDbContext<ClinicDbContext>(options =>
-//     options.UseNpgsql(connectionString));
+// Configure Database - PostgreSQL
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+builder.Services.AddDbContext<ClinicDbContext>(options =>
+    options.UseNpgsql(connectionString));
 
-// Configure AutoMapper (comment out vì chưa có)
-// builder.Services.AddAutoMapper(typeof(MappingProfile));
+// Configure AutoMapper
+builder.Services.AddAutoMapper(typeof(MappingProfile));
 
-// Register Repositories (comment out vì chưa có)
-// builder.Services.AddScoped<IPatientRepository, PatientRepository>();
+// Register Repositories
+builder.Services.AddScoped<IPatientRepository, PatientRepository>();
+builder.Services.AddScoped<IDoctorRepository, DoctorRepository>();
+builder.Services.AddScoped<IAppointmentRepository, AppointmentRepository>();
+builder.Services.AddScoped<IMedicineRepository, MedicineRepository>();
 
-// Register Services (comment out vì chưa có)
-// builder.Services.AddScoped<IPatientService, PatientService>();
+// Register Services
+builder.Services.AddScoped<IPatientService, PatientService>();
+builder.Services.AddScoped<IDoctorService, DoctorService>();
+builder.Services.AddScoped<IAppointmentService, AppointmentService>();
+builder.Services.AddScoped<IMedicineService, MedicineService>();
 
 // Configure JWT Authentication
 var jwtSettings = builder.Configuration.GetSection("JwtSettings");
@@ -61,8 +72,8 @@ builder.Services.AddSwaggerGen(c =>
         Description = "RESTful API for Clinic Management System",
         Contact = new OpenApiContact
         {
-            Name = "Your Team Name",
-            Email = "your@email.com"
+            Name = "Clinic Management Team",
+            Email = "support@clinicmanagement.com"
         }
     });
 
@@ -119,18 +130,15 @@ builder.Logging.AddDebug();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline
-if (app.Environment.IsDevelopment())
+app.UseSwagger();
+app.UseSwaggerUI(c =>
 {
-    app.UseSwagger();
-    app.UseSwaggerUI(c =>
-    {
-        c.SwaggerEndpoint("/swagger/v1/swagger.json", "Clinic Management API v1");
-        c.RoutePrefix = "swagger"; // Access Swagger at /swagger
-    });
-}
+    c.SwaggerEndpoint("/swagger/v1/swagger.json", "Clinic Management API v1");
+    c.RoutePrefix = "swagger";
+});
 
-// Enable HTTPS redirection
-app.UseHttpsRedirection();
+// Enable HTTPS redirection (commented for Render deployment)
+// app.UseHttpsRedirection();
 
 // Enable CORS
 app.UseCors("AllowAll");
@@ -146,7 +154,8 @@ app.MapControllers();
 app.MapGet("/health", () => Results.Ok(new
 {
     status = "healthy",
-    timestamp = DateTime.UtcNow
+    timestamp = DateTime.UtcNow,
+    environment = app.Environment.EnvironmentName
 }));
 
 // Welcome endpoint
@@ -154,7 +163,15 @@ app.MapGet("/", () => Results.Ok(new
 {
     message = "Welcome to Clinic Management API",
     version = "1.0",
-    documentation = "/swagger"
+    documentation = "/swagger",
+    endpoints = new
+    {
+        auth = "/api/Auth/login",
+        patients = "/api/Patients",
+        doctors = "/api/Doctors",
+        appointments = "/api/Appointments",
+        medicines = "/api/Medicines"
+    }
 }));
 
 app.Run();

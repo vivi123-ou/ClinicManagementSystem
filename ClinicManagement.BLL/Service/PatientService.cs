@@ -7,12 +7,12 @@ namespace ClinicManagement.BLL.Service
 {
     public interface IPatientService
     {
-        Task<IEnumerable<PatientDTO>> GetAllPatientsAsync();
-        Task<PatientDTO> GetPatientByIdAsync(int id);
-        Task<PatientDTO> CreatePatientAsync(CreatePatientDTO dto);
-        Task<PatientDTO> UpdatePatientAsync(int id, UpdatePatientDTO dto);
+        Task<IEnumerable<PatientDTOs>> GetAllPatientsAsync();
+        Task<PatientDTOs> GetPatientByIdAsync(int id);
+        Task<PatientDTOs> CreatePatientAsync(CreatePatientDTO dto);
+        Task<PatientDTOs> UpdatePatientAsync(int id, UpdatePatientDTO dto);
         Task<bool> DeletePatientAsync(int id);
-        Task<IEnumerable<PatientDTO>> SearchPatientsByNameAsync(string name);
+        Task<IEnumerable<PatientDTOs>> SearchPatientsByNameAsync(string name);
     }
 
     public class PatientService : IPatientService
@@ -26,22 +26,22 @@ namespace ClinicManagement.BLL.Service
             _mapper = mapper;
         }
 
-        public async Task<IEnumerable<PatientDTO>> GetAllPatientsAsync()
+        public async Task<IEnumerable<PatientDTOs>> GetAllPatientsAsync()
         {
             var patients = await _repository.GetAllAsync();
-            return _mapper.Map<IEnumerable<PatientDTO>>(patients);
+            return _mapper.Map<IEnumerable<PatientDTOs>>(patients);
         }
 
-        public async Task<PatientDTO> GetPatientByIdAsync(int id)
+        public async Task<PatientDTOs> GetPatientByIdAsync(int id)
         {
             var patient = await _repository.GetByIdAsync(id);
             if (patient == null)
                 throw new KeyNotFoundException($"Patient with ID {id} not found");
 
-            return _mapper.Map<PatientDTO>(patient);
+            return _mapper.Map<PatientDTOs>(patient);
         }
 
-        public async Task<PatientDTO> CreatePatientAsync(CreatePatientDTO dto)
+        public async Task<PatientDTOs> CreatePatientAsync(CreatePatientDTO dto)
         {
             // Validate identity card uniqueness
             if (!string.IsNullOrEmpty(dto.IdentityCard))
@@ -53,10 +53,10 @@ namespace ClinicManagement.BLL.Service
 
             var patient = _mapper.Map<Patient>(dto);
             var created = await _repository.CreateAsync(patient);
-            return _mapper.Map<PatientDTO>(created);
+            return _mapper.Map<PatientDTOs>(created);
         }
 
-        public async Task<PatientDTO> UpdatePatientAsync(int id, UpdatePatientDTO dto)
+        public async Task<PatientDTOs> UpdatePatientAsync(int id, UpdatePatientDTO dto)
         {
             var existing = await _repository.GetByIdAsync(id);
             if (existing == null)
@@ -64,7 +64,7 @@ namespace ClinicManagement.BLL.Service
 
             _mapper.Map(dto, existing);
             var updated = await _repository.UpdateAsync(existing);
-            return _mapper.Map<PatientDTO>(updated);
+            return _mapper.Map<PatientDTOs>(updated);
         }
 
         public async Task<bool> DeletePatientAsync(int id)
@@ -76,13 +76,13 @@ namespace ClinicManagement.BLL.Service
             return await _repository.DeleteAsync(id);
         }
 
-        public async Task<IEnumerable<PatientDTO>> SearchPatientsByNameAsync(string name)
+        public async Task<IEnumerable<PatientDTOs>> SearchPatientsByNameAsync(string name)
         {
             if (string.IsNullOrWhiteSpace(name))
                 return await GetAllPatientsAsync();
 
             var patients = await _repository.SearchByNameAsync(name);
-            return _mapper.Map<IEnumerable<PatientDTO>>(patients);
+            return _mapper.Map<IEnumerable<PatientDTOs>>(patients);
         }
     }
 }

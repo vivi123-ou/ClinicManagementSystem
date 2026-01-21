@@ -51,7 +51,7 @@ namespace ClinicManagement.DAL.Entities
         [ForeignKey("UserId")]
         public virtual User User { get; set; }
 
-        public virtual ICollection<Appointment> Appointments { get; set; }
-        public virtual ICollection<MedicalRecord> MedicalRecords { get; set; }
+        public virtual ICollection<Appointment> Appointments { get; set; } = new List<Appointment>();
+        public virtual ICollection<MedicalRecord> MedicalRecords { get; set; } = new List<MedicalRecord>();
     }
 }
