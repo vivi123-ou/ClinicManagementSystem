@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "ClinicManagement.Common": {
+      "commandName": "Project"
+    },
+    "Profile 1": {
+      "commandName": "Executable",
+      "executablePath": "D:\\csdl\\proj\\ClinicManagementSystem\\src\\ClinicManagement.API\\Program.cs"
+    }
+  }
+}

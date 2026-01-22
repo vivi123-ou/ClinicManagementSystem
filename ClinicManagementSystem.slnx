@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="src/ClinicManagement.API/ClinicManagement.API.csproj" />
+  <Project Path="src/ClinicManagement.BLL/ClinicManagement.BLL.csproj" />
+  <Project Path="src/ClinicManagement.Common/ClinicManagement.Common.csproj" />
+  <Project Path="src/ClinicManagement.DAL/ClinicManagement.DAL.csproj" />
+</Solution>
