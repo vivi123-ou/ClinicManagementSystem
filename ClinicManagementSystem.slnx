@@ -1,4 +1,5 @@
 <Solution>
+  <Project Path="ClinicManagementSystem.GUI/ClinicManagementSystem.GUI.csproj" Id="2380585c-00e0-4fbe-95ab-f0b96ba9337e" />
   <Project Path="src/ClinicManagement.API/ClinicManagement.API.csproj" />
   <Project Path="src/ClinicManagement.BLL/ClinicManagement.BLL.csproj" />
   <Project Path="src/ClinicManagement.Common/ClinicManagement.Common.csproj" />

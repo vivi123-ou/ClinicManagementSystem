@@ -14,6 +14,8 @@ namespace ClinicManagement.DAL.Data
         public DbSet<DonThuoc> DonThuocs { get; set; }
         public DbSet<ChiTietDonThuoc> ChiTietDonThuocs { get; set; }
         public DbSet<HoaDon> HoaDons { get; set; }
+        public DbSet<DichVu> DichVus { get; set; }
+        public DbSet<ChiTietSuDungDichVu> ChiTietSuDungDichVus { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

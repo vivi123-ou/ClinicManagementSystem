@@ -11,6 +11,7 @@
     {
         public string MaPhieuKham { get; set; } = null!;
         public List<ThuocItemDTO> DanhSachThuoc { get; set; } = new();
+      
     }
 
     public class ChiTietThuocDTO

@@ -17,6 +17,7 @@
         public string? TrieuChung { get; set; }
         public string? ChanDoan { get; set; }
         public string TrangThai { get; set; } = null!;
+        public List<KetQuaDichVuViewDTO> DanhSachDichVuDaLam { get; set; } = new();
     }
 
     public class ChanDoanDTO
