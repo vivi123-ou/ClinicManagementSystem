@@ -24,27 +24,61 @@ namespace ClinicManagementClient.Forms
         {
             try
             {
-                // Gọi API bạn vừa viết xong: GET /api/PhieuKham/bac-si/{id}
-                var list = await ApiClient.GetAsync<List<PhieuKhamDetailDTO>>($"PhieuKham/bac-si/{maBacSi}");
-                dgvChoKham.DataSource = list;
+                // 1. Gọi API lấy danh sách
+                var list = await ApiClient.GetAsync<List<PhieuKhamDetailDTO>>("PhieuKham/my-patients");
 
-                // Ẩn cột không cần thiết
-                dgvChoKham.Columns["MaPhieuKham"].Visible = false;
+                // 2. QUAN TRỌNG: Nếu API trả về null (lỗi hoặc không có dữ liệu), ta gán bằng List rỗng để tránh lỗi
+                if (list == null)
+                {
+                    list = new List<PhieuKhamDetailDTO>();
+                }
+
+                // 3. Gán dữ liệu vào lưới
+                if (dgvChoKham != null)
+                {
+                    dgvChoKham.DataSource = list;
+
+                    // 4. Kiểm tra cột có tồn tại không rồi mới ẩn (Code an toàn)
+                    if (dgvChoKham.Columns.Contains("MaPhieuKham"))
+                    {
+                        dgvChoKham.Columns["MaPhieuKham"].Visible = false;
+                    }
+                }
             }
-            catch (Exception ex) { MessageBox.Show("Lỗi tải danh sách: " + ex.Message); }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi tải danh sách: " + ex.Message);
+            }
         }
-
         // 2. Khi chọn bệnh nhân từ lưới
         private void dgvChoKham_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            // 1. Nếu click vào tiêu đề cột thì bỏ qua
             if (e.RowIndex < 0) return;
 
-            var row = dgvChoKham.Rows[e.RowIndex];
-            _maPhieuKhamHienTai = row.Cells["MaPhieuKham"].Value.ToString();
+            try
+            {
+                // 2. Lấy dòng hiện tại
+                var row = dgvChoKham.Rows[e.RowIndex];
 
-            // Hiện thông tin lên các ô nhập
-            txtTenBN.Text = row.Cells["TenBenhNhan"].Value.ToString();
-            txtTrieuChung.Text = row.Cells["TrieuChung"].Value?.ToString();
+                // 3. Lấy cục dữ liệu gốc (DTO) của dòng đó
+                // (Cách này an toàn hơn dùng row.Cells["TenCot"])
+                var item = row.DataBoundItem as PhieuKhamDetailDTO;
+
+                if (item != null)
+                {
+                    _maPhieuKhamHienTai = item.MaPhieuKham;
+
+                    // 4. Gán thông tin lên màn hình
+                    // Mẹo: Gõ "item." rồi chờ gợi ý xem nó là .HoTen hay .TenBenhNhan
+                    txtTenBN.Text = item.TenBenhNhan;  // <--- Nếu báo lỗi đỏ, hãy sửa thành item.HoTen
+                    txtTrieuChung.Text = item.TrieuChung;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi chọn dòng: " + ex.Message);
+            }
         }
 
         // 3. Lưu Chẩn Đoán (Quan trọng) [Theo quy trình file Word 1738]
@@ -62,7 +96,7 @@ namespace ClinicManagementClient.Forms
                 };
 
                 // Gọi API PUT /api/PhieuKham/{id}/chan-doan
-                await ApiClient.PutAsync($"PhieuKham/{_maPhieuKhamHienTai}/chan-doan", chanDoanDTO);
+                await ApiClient.PutAsync($"PhieuKham/{_maPhieuKhamHienTai}/diagnosis", chanDoanDTO);
 
                 MessageBox.Show("Đã lưu bệnh án thành công!");
             }
@@ -98,6 +132,11 @@ namespace ClinicManagementClient.Forms
             txtChanDoan.Clear();
             txtHuyetAp.Clear();
             _maPhieuKhamHienTai = null;
+        }
+
+        private void txtTrieuChung_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

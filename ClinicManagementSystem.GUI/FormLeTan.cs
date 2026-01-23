@@ -66,7 +66,7 @@ namespace ClinicManagementClient.Forms
                 var phieuKhamDTO = new PhieuKhamCreateDTO
                 {
                     MaBenhNhan = _currentBenhNhan.MaBenhNhan,
-                    MaBacSi = cboBacSi.SelectedValue.ToString(), // ID Bác sĩ chọn từ combo
+                    MaBacSi = cboBacSi.SelectedValue.ToString(), 
                     TrieuChung = "Đăng ký khám ban đầu"
                 };
 
@@ -85,15 +85,30 @@ namespace ClinicManagementClient.Forms
         // --- Các hàm phụ trợ ---
         private void FillData(BenhNhanDTO bn) { txtHoTen.Text = bn.HoTen; txtSDT.Text = bn.SoDienThoai; }
         private void ClearData() { txtHoTen.Clear(); txtSDT.Clear(); txtDiaChi.Clear(); _currentBenhNhan = null; }
-        private void LoadDanhSachBacSi()
+        private async void LoadDanhSachBacSi()
         {
-            // Tạm thời add cứng để test, sau này gọi API lấy list bác sĩ
-            // 👇 SỬA LẠI DÒNG NÀY (Thêm dấu cách sau chữ new)
-            var listBS = new List<dynamic> { new { Id = "ND002", Name = "Bác sĩ Minh" } };
+            try
+            {
+                // 1. Gọi API lấy danh sách bác sĩ (Thay vì list cứng)
+                // Đường dẫn "NguoiDung/get-bac-si" phải khớp với Controller bên Server
+                var listBS = await ApiClient.GetAsync<List<BacSiDTO>>("NguoiDung/get-bac-si");
 
-            cboBacSi.DataSource = listBS;
-            cboBacSi.DisplayMember = "Name";
-            cboBacSi.ValueMember = "Id";
+                // 2. Kiểm tra nếu null thì tạo list rỗng
+                if (listBS == null) listBS = new List<BacSiDTO>();
+
+                // 3. Đổ dữ liệu vào ComboBox
+                cboBacSi.DataSource = listBS;
+                cboBacSi.DisplayMember = "HoTen";       // Hiển thị tên
+                cboBacSi.ValueMember = "MaNguoiDung";   // Giá trị thực là ID (MaNguoiDung)
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi tải danh sách bác sĩ: " + ex.Message);
+
+                // (Tùy chọn) Nếu lỗi API thì add tạm bác sĩ ảo để test không bị gián đoạn
+                var listAo = new List<BacSiDTO> { new BacSiDTO { MaNguoiDung = "ND002", HoTen = "Bác sĩ (Offline)" } };
+                cboBacSi.DataSource = listAo;
+            }
         }
     }
 }

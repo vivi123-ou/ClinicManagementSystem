@@ -12,206 +12,206 @@
 
         private void InitializeComponent()
         {
-            this.lblTitle = new System.Windows.Forms.Label();
-            this.grpTimKiem = new System.Windows.Forms.GroupBox();
-            this.btnTim = new System.Windows.Forms.Button();
-            this.txtTimKiem = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.grpThongTin = new System.Windows.Forms.GroupBox();
-            this.txtDiaChi = new System.Windows.Forms.TextBox();
-            this.lblDiaChi = new System.Windows.Forms.Label();
-            this.txtSDT = new System.Windows.Forms.TextBox();
-            this.lblSDT = new System.Windows.Forms.Label();
-            this.txtHoTen = new System.Windows.Forms.TextBox();
-            this.lblHoTen = new System.Windows.Forms.Label();
-            this.grpDangKy = new System.Windows.Forms.GroupBox();
-            this.btnTaoPhieu = new System.Windows.Forms.Button();
-            this.cboBacSi = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.grpTimKiem.SuspendLayout();
-            this.grpThongTin.SuspendLayout();
-            this.grpDangKy.SuspendLayout();
-            this.SuspendLayout();
+            lblTitle = new Label();
+            grpTimKiem = new GroupBox();
+            btnTim = new Button();
+            txtTimKiem = new TextBox();
+            label1 = new Label();
+            grpThongTin = new GroupBox();
+            txtDiaChi = new TextBox();
+            lblDiaChi = new Label();
+            txtSDT = new TextBox();
+            lblSDT = new Label();
+            txtHoTen = new TextBox();
+            lblHoTen = new Label();
+            grpDangKy = new GroupBox();
+            btnTaoPhieu = new Button();
+            cboBacSi = new ComboBox();
+            label5 = new Label();
+            grpTimKiem.SuspendLayout();
+            grpThongTin.SuspendLayout();
+            grpDangKy.SuspendLayout();
+            SuspendLayout();
             // 
             // lblTitle
             // 
-            this.lblTitle.AutoSize = true;
-            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.lblTitle.Location = new System.Drawing.Point(20, 20);
-            this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(225, 30);
-            this.lblTitle.TabIndex = 0;
-            this.lblTitle.Text = "TIẾP ĐÓN BỆNH NHÂN";
+            lblTitle.AutoSize = true;
+            lblTitle.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
+            lblTitle.ForeColor = Color.FromArgb(0, 122, 204);
+            lblTitle.Location = new Point(20, 20);
+            lblTitle.Name = "lblTitle";
+            lblTitle.Size = new Size(310, 37);
+            lblTitle.TabIndex = 0;
+            lblTitle.Text = "TIẾP ĐÓN BỆNH NHÂN";
             // 
             // grpTimKiem
             // 
-            this.grpTimKiem.Controls.Add(this.btnTim);
-            this.grpTimKiem.Controls.Add(this.txtTimKiem);
-            this.grpTimKiem.Controls.Add(this.label1);
-            this.grpTimKiem.Location = new System.Drawing.Point(25, 70);
-            this.grpTimKiem.Name = "grpTimKiem";
-            this.grpTimKiem.Size = new System.Drawing.Size(750, 80);
-            this.grpTimKiem.TabIndex = 1;
-            this.grpTimKiem.TabStop = false;
-            this.grpTimKiem.Text = "Tra cứu";
+            grpTimKiem.Controls.Add(btnTim);
+            grpTimKiem.Controls.Add(txtTimKiem);
+            grpTimKiem.Controls.Add(label1);
+            grpTimKiem.Location = new Point(25, 70);
+            grpTimKiem.Name = "grpTimKiem";
+            grpTimKiem.Size = new Size(750, 80);
+            grpTimKiem.TabIndex = 1;
+            grpTimKiem.TabStop = false;
+            grpTimKiem.Text = "Tra cứu";
             // 
             // btnTim
             // 
-            this.btnTim.BackColor = System.Drawing.Color.SteelBlue;
-            this.btnTim.ForeColor = System.Drawing.Color.White;
-            this.btnTim.Location = new System.Drawing.Point(450, 30);
-            this.btnTim.Name = "btnTim";
-            this.btnTim.Size = new System.Drawing.Size(100, 35);
-            this.btnTim.TabIndex = 2;
-            this.btnTim.Text = "Tìm kiếm";
-            this.btnTim.UseVisualStyleBackColor = false;
-            this.btnTim.Click += new System.EventHandler(this.btnTim_Click);
+            btnTim.BackColor = Color.SteelBlue;
+            btnTim.ForeColor = Color.White;
+            btnTim.Location = new Point(450, 30);
+            btnTim.Name = "btnTim";
+            btnTim.Size = new Size(100, 35);
+            btnTim.TabIndex = 2;
+            btnTim.Text = "Tìm kiếm";
+            btnTim.UseVisualStyleBackColor = false;
+            btnTim.Click += btnTim_Click;
             // 
             // txtTimKiem
             // 
-            this.txtTimKiem.Location = new System.Drawing.Point(150, 35);
-            this.txtTimKiem.Name = "txtTimKiem";
-            this.txtTimKiem.Size = new System.Drawing.Size(280, 27);
-            this.txtTimKiem.TabIndex = 1;
+            txtTimKiem.Location = new Point(150, 35);
+            txtTimKiem.Name = "txtTimKiem";
+            txtTimKiem.Size = new Size(280, 32);
+            txtTimKiem.TabIndex = 1;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(20, 38);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(120, 20);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "SĐT hoặc CMND:";
+            label1.AutoSize = true;
+            label1.Location = new Point(20, 38);
+            label1.Name = "label1";
+            label1.Size = new Size(156, 25);
+            label1.TabIndex = 0;
+            label1.Text = "SĐT hoặc CMND:";
             // 
             // grpThongTin
             // 
-            this.grpThongTin.Controls.Add(this.txtDiaChi);
-            this.grpThongTin.Controls.Add(this.lblDiaChi);
-            this.grpThongTin.Controls.Add(this.txtSDT);
-            this.grpThongTin.Controls.Add(this.lblSDT);
-            this.grpThongTin.Controls.Add(this.txtHoTen);
-            this.grpThongTin.Controls.Add(this.lblHoTen);
-            this.grpThongTin.Location = new System.Drawing.Point(25, 170);
-            this.grpThongTin.Name = "grpThongTin";
-            this.grpThongTin.Size = new System.Drawing.Size(750, 180);
-            this.grpThongTin.TabIndex = 2;
-            this.grpThongTin.TabStop = false;
-            this.grpThongTin.Text = "Thông tin Bệnh nhân";
+            grpThongTin.Controls.Add(txtDiaChi);
+            grpThongTin.Controls.Add(lblDiaChi);
+            grpThongTin.Controls.Add(txtSDT);
+            grpThongTin.Controls.Add(lblSDT);
+            grpThongTin.Controls.Add(txtHoTen);
+            grpThongTin.Controls.Add(lblHoTen);
+            grpThongTin.Location = new Point(25, 170);
+            grpThongTin.Name = "grpThongTin";
+            grpThongTin.Size = new Size(750, 180);
+            grpThongTin.TabIndex = 2;
+            grpThongTin.TabStop = false;
+            grpThongTin.Text = "Thông tin Bệnh nhân";
             // 
             // txtDiaChi
             // 
-            this.txtDiaChi.Location = new System.Drawing.Point(150, 120);
-            this.txtDiaChi.Name = "txtDiaChi";
-            this.txtDiaChi.Size = new System.Drawing.Size(550, 27);
-            this.txtDiaChi.TabIndex = 5;
+            txtDiaChi.Location = new Point(150, 120);
+            txtDiaChi.Name = "txtDiaChi";
+            txtDiaChi.Size = new Size(550, 32);
+            txtDiaChi.TabIndex = 5;
             // 
             // lblDiaChi
             // 
-            this.lblDiaChi.AutoSize = true;
-            this.lblDiaChi.Location = new System.Drawing.Point(30, 123);
-            this.lblDiaChi.Name = "lblDiaChi";
-            this.lblDiaChi.Size = new System.Drawing.Size(58, 20);
-            this.lblDiaChi.TabIndex = 4;
-            this.lblDiaChi.Text = "Địa chỉ:";
+            lblDiaChi.AutoSize = true;
+            lblDiaChi.Location = new Point(30, 123);
+            lblDiaChi.Name = "lblDiaChi";
+            lblDiaChi.Size = new Size(74, 25);
+            lblDiaChi.TabIndex = 4;
+            lblDiaChi.Text = "Địa chỉ:";
             // 
             // txtSDT
             // 
-            this.txtSDT.Location = new System.Drawing.Point(150, 80);
-            this.txtSDT.Name = "txtSDT";
-            this.txtSDT.Size = new System.Drawing.Size(250, 27);
-            this.txtSDT.TabIndex = 3;
+            txtSDT.Location = new Point(150, 80);
+            txtSDT.Name = "txtSDT";
+            txtSDT.Size = new Size(250, 32);
+            txtSDT.TabIndex = 3;
             // 
             // lblSDT
             // 
-            this.lblSDT.AutoSize = true;
-            this.lblSDT.Location = new System.Drawing.Point(30, 83);
-            this.lblSDT.Name = "lblSDT";
-            this.lblSDT.Size = new System.Drawing.Size(100, 20);
-            this.lblSDT.TabIndex = 2;
-            this.lblSDT.Text = "Số điện thoại:";
+            lblSDT.AutoSize = true;
+            lblSDT.Location = new Point(30, 83);
+            lblSDT.Name = "lblSDT";
+            lblSDT.Size = new Size(127, 25);
+            lblSDT.TabIndex = 2;
+            lblSDT.Text = "Số điện thoại:";
             // 
             // txtHoTen
             // 
-            this.txtHoTen.Location = new System.Drawing.Point(150, 40);
-            this.txtHoTen.Name = "txtHoTen";
-            this.txtHoTen.Size = new System.Drawing.Size(250, 27);
-            this.txtHoTen.TabIndex = 1;
+            txtHoTen.Location = new Point(150, 40);
+            txtHoTen.Name = "txtHoTen";
+            txtHoTen.Size = new Size(250, 32);
+            txtHoTen.TabIndex = 1;
             // 
             // lblHoTen
             // 
-            this.lblHoTen.AutoSize = true;
-            this.lblHoTen.Location = new System.Drawing.Point(30, 43);
-            this.lblHoTen.Name = "lblHoTen";
-            this.lblHoTen.Size = new System.Drawing.Size(76, 20);
-            this.lblHoTen.TabIndex = 0;
-            this.lblHoTen.Text = "Họ và tên:";
+            lblHoTen.AutoSize = true;
+            lblHoTen.Location = new Point(30, 43);
+            lblHoTen.Name = "lblHoTen";
+            lblHoTen.Size = new Size(96, 25);
+            lblHoTen.TabIndex = 0;
+            lblHoTen.Text = "Họ và tên:";
             // 
             // grpDangKy
             // 
-            this.grpDangKy.Controls.Add(this.btnTaoPhieu);
-            this.grpDangKy.Controls.Add(this.cboBacSi);
-            this.grpDangKy.Controls.Add(this.label5);
-            this.grpDangKy.Location = new System.Drawing.Point(25, 370);
-            this.grpDangKy.Name = "grpDangKy";
-            this.grpDangKy.Size = new System.Drawing.Size(750, 100);
-            this.grpDangKy.TabIndex = 3;
-            this.grpDangKy.TabStop = false;
-            this.grpDangKy.Text = "Đăng ký khám";
+            grpDangKy.Controls.Add(btnTaoPhieu);
+            grpDangKy.Controls.Add(cboBacSi);
+            grpDangKy.Controls.Add(label5);
+            grpDangKy.Location = new Point(25, 370);
+            grpDangKy.Name = "grpDangKy";
+            grpDangKy.Size = new Size(750, 100);
+            grpDangKy.TabIndex = 3;
+            grpDangKy.TabStop = false;
+            grpDangKy.Text = "Đăng ký khám";
             // 
             // btnTaoPhieu
             // 
-            this.btnTaoPhieu.BackColor = System.Drawing.Color.ForestGreen;
-            this.btnTaoPhieu.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnTaoPhieu.ForeColor = System.Drawing.Color.White;
-            this.btnTaoPhieu.Location = new System.Drawing.Point(500, 30);
-            this.btnTaoPhieu.Name = "btnTaoPhieu";
-            this.btnTaoPhieu.Size = new System.Drawing.Size(200, 45);
-            this.btnTaoPhieu.TabIndex = 2;
-            this.btnTaoPhieu.Text = "TẠO PHIẾU KHÁM";
-            this.btnTaoPhieu.UseVisualStyleBackColor = false;
-            this.btnTaoPhieu.Click += new System.EventHandler(this.btnTaoPhieu_Click);
+            btnTaoPhieu.BackColor = Color.ForestGreen;
+            btnTaoPhieu.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            btnTaoPhieu.ForeColor = Color.White;
+            btnTaoPhieu.Location = new Point(500, 30);
+            btnTaoPhieu.Name = "btnTaoPhieu";
+            btnTaoPhieu.Size = new Size(200, 45);
+            btnTaoPhieu.TabIndex = 2;
+            btnTaoPhieu.Text = "TẠO PHIẾU KHÁM";
+            btnTaoPhieu.UseVisualStyleBackColor = false;
+            btnTaoPhieu.Click += btnTaoPhieu_Click;
             // 
             // cboBacSi
             // 
-            this.cboBacSi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboBacSi.FormattingEnabled = true;
-            this.cboBacSi.Location = new System.Drawing.Point(150, 40);
-            this.cboBacSi.Name = "cboBacSi";
-            this.cboBacSi.Size = new System.Drawing.Size(250, 28);
-            this.cboBacSi.TabIndex = 1;
+            cboBacSi.DropDownStyle = ComboBoxStyle.DropDownList;
+            cboBacSi.FormattingEnabled = true;
+            cboBacSi.Location = new Point(150, 40);
+            cboBacSi.Name = "cboBacSi";
+            cboBacSi.Size = new Size(250, 33);
+            cboBacSi.TabIndex = 1;
             // 
             // label5
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(30, 43);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(95, 20);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "Chọn Bác sĩ:";
+            label5.AutoSize = true;
+            label5.Location = new Point(30, 43);
+            label5.Name = "label5";
+            label5.Size = new Size(114, 25);
+            label5.TabIndex = 0;
+            label5.Text = "Chọn Bác sĩ:";
             // 
             // FormLeTan
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(800, 500);
-            this.Controls.Add(this.grpDangKy);
-            this.Controls.Add(this.grpThongTin);
-            this.Controls.Add(this.grpTimKiem);
-            this.Controls.Add(this.lblTitle);
-            this.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Name = "FormLeTan";
-            this.Text = "Lễ Tân - Tiếp đón";
-            this.Load += new System.EventHandler(this.FormLeTan_Load);
-            this.grpTimKiem.ResumeLayout(false);
-            this.grpTimKiem.PerformLayout();
-            this.grpThongTin.ResumeLayout(false);
-            this.grpThongTin.PerformLayout();
-            this.grpDangKy.ResumeLayout(false);
-            this.grpDangKy.PerformLayout();
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
+            ClientSize = new Size(1089, 582);
+            Controls.Add(grpDangKy);
+            Controls.Add(grpThongTin);
+            Controls.Add(grpTimKiem);
+            Controls.Add(lblTitle);
+            Font = new Font("Segoe UI", 11F);
+            Name = "FormLeTan";
+            Text = "Lễ Tân - Tiếp đón";
+            Load += FormLeTan_Load;
+            grpTimKiem.ResumeLayout(false);
+            grpTimKiem.PerformLayout();
+            grpThongTin.ResumeLayout(false);
+            grpThongTin.PerformLayout();
+            grpDangKy.ResumeLayout(false);
+            grpDangKy.PerformLayout();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         private System.Windows.Forms.Label lblTitle;

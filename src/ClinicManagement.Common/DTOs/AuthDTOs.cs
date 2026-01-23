@@ -15,4 +15,9 @@
         public string HoTen { get; set; } = null!;
         public string VaiTro { get; set; } = null!;
     }
+    public class BacSiDTO
+    {
+        public string MaNguoiDung { get; set; } = null!;
+        public string HoTen { get; set; } = null!;
+    }
 }

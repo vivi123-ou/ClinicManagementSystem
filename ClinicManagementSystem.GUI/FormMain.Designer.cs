@@ -59,6 +59,7 @@
             btnAdmin.Text = "   Quản trị (Admin)";
             btnAdmin.TextAlign = ContentAlignment.MiddleLeft;
             btnAdmin.UseVisualStyleBackColor = true;
+            
             // 
             // btnDuoc
             // 
