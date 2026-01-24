@@ -1,5 +1,6 @@
 ﻿using ClinicManagementClient.Helpers;
-using ClinicManagement.Common.DTOs; // Sử dụng DTO chung
+using ClinicManagementSystem.GUI.Helpers;
+using ClinicManagement.Common.DTOs; // Sử dụng DTO chung 
 
 namespace ClinicManagementClient.Forms
 {
@@ -42,6 +43,7 @@ namespace ClinicManagementClient.Forms
 
                 if (response != null)
                 {
+                    SessionData.JwtToken = response.Token;
                     // 4. Lưu thông tin vào Session
                     UserSession.Token = response.Token;
                     UserSession.MaNguoiDung = response.MaNguoiDung;

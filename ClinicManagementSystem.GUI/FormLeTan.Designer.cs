@@ -51,7 +51,7 @@
             grpTimKiem.Controls.Add(label1);
             grpTimKiem.Location = new Point(25, 70);
             grpTimKiem.Name = "grpTimKiem";
-            grpTimKiem.Size = new Size(750, 80);
+            grpTimKiem.Size = new Size(773, 80);
             grpTimKiem.TabIndex = 1;
             grpTimKiem.TabStop = false;
             grpTimKiem.Text = "Tra cứu";
@@ -60,7 +60,7 @@
             // 
             btnTim.BackColor = Color.SteelBlue;
             btnTim.ForeColor = Color.White;
-            btnTim.Location = new Point(450, 30);
+            btnTim.Location = new Point(500, 33);
             btnTim.Name = "btnTim";
             btnTim.Size = new Size(100, 35);
             btnTim.TabIndex = 2;
@@ -70,7 +70,7 @@
             // 
             // txtTimKiem
             // 
-            txtTimKiem.Location = new Point(150, 35);
+            txtTimKiem.Location = new Point(200, 38);
             txtTimKiem.Name = "txtTimKiem";
             txtTimKiem.Size = new Size(280, 32);
             txtTimKiem.TabIndex = 1;
@@ -94,14 +94,14 @@
             grpThongTin.Controls.Add(lblHoTen);
             grpThongTin.Location = new Point(25, 170);
             grpThongTin.Name = "grpThongTin";
-            grpThongTin.Size = new Size(750, 180);
+            grpThongTin.Size = new Size(773, 180);
             grpThongTin.TabIndex = 2;
             grpThongTin.TabStop = false;
             grpThongTin.Text = "Thông tin Bệnh nhân";
             // 
             // txtDiaChi
             // 
-            txtDiaChi.Location = new Point(150, 120);
+            txtDiaChi.Location = new Point(200, 120);
             txtDiaChi.Name = "txtDiaChi";
             txtDiaChi.Size = new Size(550, 32);
             txtDiaChi.TabIndex = 5;
@@ -117,7 +117,7 @@
             // 
             // txtSDT
             // 
-            txtSDT.Location = new Point(150, 80);
+            txtSDT.Location = new Point(200, 80);
             txtSDT.Name = "txtSDT";
             txtSDT.Size = new Size(250, 32);
             txtSDT.TabIndex = 3;
@@ -133,7 +133,7 @@
             // 
             // txtHoTen
             // 
-            txtHoTen.Location = new Point(150, 40);
+            txtHoTen.Location = new Point(200, 40);
             txtHoTen.Name = "txtHoTen";
             txtHoTen.Size = new Size(250, 32);
             txtHoTen.TabIndex = 1;
@@ -154,7 +154,7 @@
             grpDangKy.Controls.Add(label5);
             grpDangKy.Location = new Point(25, 370);
             grpDangKy.Name = "grpDangKy";
-            grpDangKy.Size = new Size(750, 100);
+            grpDangKy.Size = new Size(773, 100);
             grpDangKy.TabIndex = 3;
             grpDangKy.TabStop = false;
             grpDangKy.Text = "Đăng ký khám";
@@ -176,7 +176,7 @@
             // 
             cboBacSi.DropDownStyle = ComboBoxStyle.DropDownList;
             cboBacSi.FormattingEnabled = true;
-            cboBacSi.Location = new Point(150, 40);
+            cboBacSi.Location = new Point(200, 40);
             cboBacSi.Name = "cboBacSi";
             cboBacSi.Size = new Size(250, 33);
             cboBacSi.TabIndex = 1;

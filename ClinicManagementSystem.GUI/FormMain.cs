@@ -1,4 +1,5 @@
 ﻿using ClinicManagementClient.Helpers;
+using ClinicManagementSystem.GUI;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
@@ -111,6 +112,24 @@ namespace ClinicManagementClient.Forms
 
             // Đổi màu nút được chọn
             btn.BackColor = Color.FromArgb(0, 150, 136);
+        }
+
+        private void btnDuoc_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new FormKhoDuoc());
+            HighlightButton(btnKhamBenh);
+        }
+
+        private void btnAdmin_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new FormAdmin());
+            HighlightButton(btnKhamBenh);
+        }
+
+        private void btnThuNgan_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new FormThuNgan());
+            HighlightButton(btnKhamBenh);
         }
     }
 }

@@ -13,6 +13,7 @@
         private void InitializeComponent()
         {
             pnlMenu = new Panel();
+            btnThuNgan = new Button();
             btnAdmin = new Button();
             btnDuoc = new Button();
             btnKhamBenh = new Button();
@@ -31,6 +32,7 @@
             // pnlMenu
             // 
             pnlMenu.BackColor = Color.FromArgb(51, 51, 76);
+            pnlMenu.Controls.Add(btnThuNgan);
             pnlMenu.Controls.Add(btnAdmin);
             pnlMenu.Controls.Add(btnDuoc);
             pnlMenu.Controls.Add(btnKhamBenh);
@@ -43,6 +45,24 @@
             pnlMenu.Size = new Size(251, 800);
             pnlMenu.TabIndex = 0;
             // 
+            // btnThuNgan
+            // 
+            btnThuNgan.Dock = DockStyle.Top;
+            btnThuNgan.FlatAppearance.BorderSize = 0;
+            btnThuNgan.FlatStyle = FlatStyle.Flat;
+            btnThuNgan.Font = new Font("Segoe UI", 10F);
+            btnThuNgan.ForeColor = Color.Gainsboro;
+            btnThuNgan.Location = new Point(0, 453);
+            btnThuNgan.Margin = new Padding(3, 4, 3, 4);
+            btnThuNgan.Name = "btnThuNgan";
+            btnThuNgan.Padding = new Padding(14, 0, 0, 0);
+            btnThuNgan.Size = new Size(251, 80);
+            btnThuNgan.TabIndex = 5;
+            btnThuNgan.Text = "   Thu Ngân";
+            btnThuNgan.TextAlign = ContentAlignment.MiddleLeft;
+            btnThuNgan.UseVisualStyleBackColor = true;
+            btnThuNgan.Click += btnThuNgan_Click;
+            // 
             // btnAdmin
             // 
             btnAdmin.Dock = DockStyle.Top;
@@ -50,7 +70,7 @@
             btnAdmin.FlatStyle = FlatStyle.Flat;
             btnAdmin.Font = new Font("Segoe UI", 10F);
             btnAdmin.ForeColor = Color.Gainsboro;
-            btnAdmin.Location = new Point(0, 360);
+            btnAdmin.Location = new Point(0, 373);
             btnAdmin.Margin = new Padding(3, 4, 3, 4);
             btnAdmin.Name = "btnAdmin";
             btnAdmin.Padding = new Padding(14, 0, 0, 0);
@@ -59,7 +79,7 @@
             btnAdmin.Text = "   Quản trị (Admin)";
             btnAdmin.TextAlign = ContentAlignment.MiddleLeft;
             btnAdmin.UseVisualStyleBackColor = true;
-            
+            btnAdmin.Click += btnAdmin_Click;
             // 
             // btnDuoc
             // 
@@ -72,11 +92,12 @@
             btnDuoc.Margin = new Padding(3, 4, 3, 4);
             btnDuoc.Name = "btnDuoc";
             btnDuoc.Padding = new Padding(14, 0, 0, 0);
-            btnDuoc.Size = new Size(251, 80);
-            btnDuoc.TabIndex = 3;
+            btnDuoc.Size = new Size(251, 93);
+            btnDuoc.TabIndex = 2;
             btnDuoc.Text = "   Kho Dược";
             btnDuoc.TextAlign = ContentAlignment.MiddleLeft;
             btnDuoc.UseVisualStyleBackColor = true;
+            btnDuoc.Click += btnDuoc_Click;
             // 
             // btnKhamBenh
             // 
@@ -216,5 +237,6 @@
         private System.Windows.Forms.Label lblUserInfo;
         private System.Windows.Forms.Button btnDangXuat;
         private System.Windows.Forms.Panel pnlContent;
+        private Button btnThuNgan;
     }
 }

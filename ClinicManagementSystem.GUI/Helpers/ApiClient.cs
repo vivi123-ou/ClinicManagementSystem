@@ -1,10 +1,11 @@
 ﻿using Newtonsoft.Json;
+using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace ClinicManagementClient.Helpers
 {
-    // 1. Lưu thông tin người đang đăng nhập
     public static class UserSession
     {
         public static string Token { get; set; } = "";
@@ -13,13 +14,9 @@ namespace ClinicManagementClient.Helpers
         public static string VaiTro { get; set; } = ""; // "BacSi", "LeTan", "Admin"
     }
 
-    // 2. Class dùng chung để gọi API
     public static class ApiClient
     {
         private static readonly HttpClient _client = new HttpClient();
-
-        // ĐỔI CÁI NÀY THÀNH LINK API TRÊN RENDER CỦA BẠN (Hoặc Localhost nếu đang chạy thử)
-        // Ví dụ: "https://clinic-api-final.onrender.com/api/";
         private static string BaseUrl = "https://clinic-api-final.onrender.com/api/";
 
         public static void SetToken(string token)
@@ -28,17 +25,38 @@ namespace ClinicManagementClient.Helpers
                 new AuthenticationHeaderValue("Bearer", token);
         }
 
-        // Hàm GET (Lấy dữ liệu)
         public static async Task<T> GetAsync<T>(string endpoint)
         {
             var response = await _client.GetAsync(BaseUrl + endpoint);
-            if (!response.IsSuccessStatusCode) return default;
+            if (!response.IsSuccessStatusCode)
+            {
+                var error = await response.Content.ReadAsStringAsync();
+                throw new Exception($"Lỗi API ({response.StatusCode}): {error}");
+            }
 
             var json = await response.Content.ReadAsStringAsync();
-            return JsonConvert.DeserializeObject<T>(json);
+            if (string.IsNullOrEmpty(json))
+            {
+                throw new Exception("API trả về dữ liệu trống");
+            }
+            
+            var result = JsonConvert.DeserializeObject<T>(json);
+            if (result == null)
+            {
+                throw new Exception("Không thể phân tích dữ liệu từ API");
+            }
+            return result;
         }
 
-        // Hàm POST (Gửi dữ liệu - Thêm mới)
+        // POST trả về HttpResponseMessage (dùng cho Form Thu Ngân)
+        public static async Task<HttpResponseMessage> PostAsync(string endpoint, object data)
+        {
+            var json = JsonConvert.SerializeObject(data);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+            return await _client.PostAsync(BaseUrl + endpoint, content);
+        }
+
+        // POST trả về dữ liệu kiểu T (dùng khi cần lấy kết quả từ API)
         public static async Task<T> PostAsync<T>(string endpoint, object data)
         {
             var json = JsonConvert.SerializeObject(data);
@@ -53,13 +71,19 @@ namespace ClinicManagementClient.Helpers
             }
 
             var resultJson = await response.Content.ReadAsStringAsync();
-            // Nếu API trả về rỗng (201 Created) thì trả về default
-            if (string.IsNullOrEmpty(resultJson)) return default;
+            if (string.IsNullOrEmpty(resultJson))
+            {
+                throw new Exception("API trả về dữ liệu trống");
+            }
 
-            return JsonConvert.DeserializeObject<T>(resultJson);
+            var result = JsonConvert.DeserializeObject<T>(resultJson);
+            if (result == null)
+            {
+                throw new Exception("Không thể phân tích dữ liệu từ API");
+            }
+            return result;
         }
 
-        // Hàm PUT (Cập nhật)
         public static async Task PutAsync(string endpoint, object data)
         {
             var json = JsonConvert.SerializeObject(data);
@@ -68,7 +92,8 @@ namespace ClinicManagementClient.Helpers
             var response = await _client.PutAsync(BaseUrl + endpoint, content);
             if (!response.IsSuccessStatusCode)
             {
-                throw new Exception("Lỗi cập nhật: " + response.StatusCode);
+                var error = await response.Content.ReadAsStringAsync();
+                throw new Exception($"Lỗi cập nhật ({response.StatusCode}): {error}");
             }
         }
     }
